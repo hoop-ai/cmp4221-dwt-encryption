@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.venv/
+venv/
+
+# Build outputs (the .pptx/.pdf at the root ARE the deliverables — keep those)
+_build/rendered/
+
+# Editor + OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Obsidian — only if vault metadata leaks in
+.obsidian/
+.makemd/
