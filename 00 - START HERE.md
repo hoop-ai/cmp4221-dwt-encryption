@@ -8,120 +8,119 @@ tags:
 ---
 # START HERE — DWT Encryption Project
 
-> Final paper: **Multi-Image Encryption Scheme Based on Chaotic Pseudo-Random Signal Generator and DWT Compression** (Xu, Gao, Cao, Mou. ACM TOMM Vol 22 Issue 3, March 2026. DOI [10.1145/3769123](https://doi.org/10.1145/3769123)).
-> Group: **Abdul Rahman Malak (2285310) + Maria Alftaih (2285921)**.
-> Talk: 10 minutes total, 5 min each, in Week 14 or 15.
+> **Paper:** *Multi-Image Encryption Scheme Based on Chaotic Pseudo-Random Signal Generator and DWT Compression* — Xu, Gao, Cao, Mou. ACM TOMM Vol 22 Issue 3, March 2026. [DOI 10.1145/3769123](https://doi.org/10.1145/3769123).
+> **Group:** Abdul Rahman Malak (2285310) + Maria Alftaih (2285921).
+> **Talk:** 10 minutes total, 5 min each, in Week 14 or 15.
 
 ---
 
-## Read this folder in this order
+## What's in this folder
 
-You and your partner both go through these in the order shown. The numbering = the reading order.
+Split into **stuff you actually open** (top level) and **deep reference** (`_reference/`, `_meta/`, `_build/`). Ignore anything that starts with `_` unless you specifically need it.
 
-| # | What | Why read it | Time |
+### The seven study files (read top to bottom in this order)
+
+| # | File | What it is | Time |
 |---|---|---|---|
-| 0 | **[00 - START HERE](00%20-%20START%20HERE.md)** (this file) | Orientation. Know what each folder is for. | 5 min |
-| 1 | **[01 - Project Report](01%20-%20Project%20Report.md)** | The master document. Everything else expands on this. Read top to bottom. | 45 min |
-| 2 | **[02 - Concepts/](02%20-%20Concepts/)** | One file per concept. Start with `01 - Image Encryption Basics.md` and go in order. You'll understand every word of the paper after this. | 2-3 hours |
-| 3 | **[03 - Speaker Scripts/](03%20-%20Speaker%20Scripts/)** | Your individual word-for-word script. Read your own one out loud, time it, internalize it. | 30 min × several passes |
-| 4 | **[04 - The Paper/](04%20-%20The%20Paper/)** | Verbatim paper + equations explained in plain English + figure index. Reference only. | dip-in |
-| 5 | **[05 - Code/](05%20-%20Code/)** | Python implementation of every algorithm. Read `Code Walkthrough.md` first. | 1 hour |
-| 6 | **[06 - Q&A and Rehearsal](06%20-%20Q%26A%20and%20Rehearsal.md)** | 20 anticipated audience questions + rehearsal checklist + stage directions | 30 min |
-| 7 | **[07 - Slide Deck Source](07%20-%20Slide%20Deck%20Source.md)** | Markdown source of the slides. Mirror of what's on screen. | reference |
-| — | **[_meta/](_meta/)** | Prof brief, requirements breakdown, form schema. Admin only — read once, ignore after. | once |
+| 1 | [What This Project Is](What%20This%20Project%20Is.md) 🗺️ | **Start here.** What's the assignment, what paper we picked, what we have to do. Zero technical content. | 10 min |
+| 2 | [Plain English Walkthrough](Plain%20English%20Walkthrough.md) 👶 | The paper explained with everyday analogies. No math. No jargon. | 25 min |
+| 3 | [Visual Cheat Sheet](Visual%20Cheat%20Sheet.md) 🎨 | Every concept as a diagram. For visual learners. | 15 min |
+| 4 | [STUDY GUIDE](STUDY%20GUIDE.md) 📘 | Slide-by-slide deep dive. What to say, what to know, memory anchors. | 90 min |
+| 5 | [Speaker Scripts/](Speaker%20Scripts/) 🎤 | Word-for-word lines. [Abdul](Speaker%20Scripts/Abdul%20(Slides%201-5).md) + [Maria](Speaker%20Scripts/Maria%20(Slides%206-10).md). | 30 min × passes |
+| 6 | [_reference/Q&A and Rehearsal](_reference/Q%26A%20and%20Rehearsal.md) 🛡️ | 20 anticipated questions with model answers + rehearsal plan. | 30 min |
+| 7 | [_reference/](_reference/) 📚 | Academic backup — project report, concept files, verbatim paper, Python code, equations walkthrough. | dip-in |
+
+### The graded deliverables (what you actually project)
+
+| File | What it is |
+|---|---|
+| `CMP4221 - DWT Encryption Presentation.pptx` / `.pdf` | The deck you project on screen |
+| `CMP4221 - DWT Encryption Study Deck.pptx` / `.pdf` | Backup deck for Q&A defense |
+
+### Hidden folders (ignore unless needed)
+
+- **`_meta/`** — admin only. Prof brief, requirements breakdown, form schema, class channel message.
+- **`_build/`** — Python script that generates the PPTX. Run `python _build/build_deck.py` to rebuild.
 
 ---
 
-## What's the project, in 60 seconds
+## How to get ready — pick your timeline
 
-The prof wants a 10-minute paired talk on a 2026 journal paper. We picked a paper about **encrypting images using two tools combined**:
+**If you have a few evenings (recommended):**
+1. Read files 1, 2, 3 in one evening. (1 hour total — you understand the paper.)
+2. Read file 4 (STUDY GUIDE) in a second evening. (90 min — you can defend each slide.)
+3. Rehearse your speaker script with a timer, 2-3 times. Run Q&A drill with your partner.
 
-1. **DWT (Discrete Wavelet Transform)** — a way to compress images by keeping only their low-frequency "approximation" sub-band. Same family as the DCT we learned in Week 6 for JPEG, but better at handling local edges. After DWT, an image is 1/4 of its original size.
-2. **Chaotic map** — a math function that, when iterated, produces a sequence that *looks* random but is fully deterministic if you know the starting numbers. The starting numbers become the encryption key.
+**If you have 90 minutes:**
+1. Skip to file 4 ([STUDY GUIDE](STUDY%20GUIDE.md)) with the deck open. Read top to bottom.
+2. Glance at file 3 ([Visual Cheat Sheet](Visual%20Cheat%20Sheet.md)) for the diagrams.
+3. Read your speaker script out loud once with a timer.
 
-The novelty: instead of encrypting one image at a time, the paper takes multiple color images, DWT-compresses each one, stacks them all into a single 3D "cube," and encrypts that whole cube using the chaotic sequence. Result: **compression and encryption in one pass, on multiple images at once**.
+**If you have 30 minutes:**
+1. Read [What This Project Is](What%20This%20Project%20Is.md) §6 + §11. (10 min — you know what we're doing.)
+2. Read the **Panic-mode summary** at the top of [STUDY GUIDE](STUDY%20GUIDE.md). (5 min.)
+3. Skim your speaker script out loud with a timer. (15 min.)
 
-If you only ever remember one sentence, remember **that one**.
+**Right before the talk:**
+1. Re-read the **Defense moves** section at the bottom of [STUDY GUIDE](STUDY%20GUIDE.md).
+2. Memorize **"Shrink. Stack. Scramble."** and the six headline numbers.
+
+---
+
+## The paper, in 60 seconds
+
+1. **DWT (Discrete Wavelet Transform)** — splits a color image into 4 sub-bands. The paper keeps only LL (the smaller blurry version) and throws the rest away. Each image is now ¼ the size.
+2. **3D chaotic map** — a deterministic function that looks random. The starting numbers are the encryption key.
+
+The novelty: instead of encrypting one image at a time, the paper takes a batch of images, DWT-compresses each one, **stacks them all into a single 3D cube**, and encrypts the whole cube using the chaotic stream. Compression and encryption in one pass, on multiple images at once.
+
+If you only ever remember one sentence: **shrink, stack, scramble.**
 
 ---
 
 ## The speaker split
 
-| Slide | Speaker | Content |
+| Slide | Speaker | Topic |
 |---|---|---|
-| 1 | Abdul | Title + paper intro |
-| 2 | Abdul | Problem statement (transmission is slow + unsafe) |
-| 3 | Abdul | Two ingredients (DWT + chaotic map) |
-| 4 | Abdul | **Novelty** (encrypt the cube) |
-| 5 | Abdul | Pipeline overview + **handoff to Maria** |
-| — | — | — |
-| 6 | Maria | Confusion step (scramble positions) |
-| 7 | Maria | Diffusion step (XOR with chaos) |
-| 8 | Maria | **Findings** (PSNR 32 dB beats prior work) |
-| 9 | Maria | Security analysis (NIST, NPCR, UACI, IE) |
+| 1 | Abdul | Title + thesis |
+| 2 | Abdul | Problem — slow AND unsafe |
+| 3 | Abdul | Two tools — DWT + chaos |
+| 4 | Abdul | **Novelty** — encrypt the cube |
+| 5 | Abdul | Pipeline + handoff to Maria |
+| 6 | Maria | Confusion — scramble positions |
+| 7 | Maria | Diffusion — XOR with chain |
+| 8 | Maria | **Findings** — PSNR 32 dB beats prior work |
+| 9 | Maria | Security — NIST, NPCR, UACI, entropy |
 | 10 | Maria | Limitation + take-home |
 
-The handoff line is "Maria, over to you." Maria physically steps forward. Practice this — it's the easiest part to fumble.
+The handoff line is **"Maria, over to you."** Practice the moment — it's the easiest part to fumble.
 
 ---
 
-## Hard cap rules (from prof)
+## Hard cap rules (from the prof)
 
-- ❌ **Over 10 minutes** → she cuts you off mid-sentence
-- ❌ **Under 8 minutes** → looks unprepared
-- ✅ **9:30–10:00** → ideal
-- ❌ **One person dominating** → graded down ("equal length")
-- ❌ **One person doing fluff while the other does math** → graded down ("both technical")
-- ✅ Both speakers explain technical content
-
----
-
-## If you're starting from zero (you said you don't know anything)
-
-Read in this order over **3-4 study sessions**:
-
-**Session 1** (~1.5 hours) — Get the big picture
-1. [01 - Project Report](01%20-%20Project%20Report.md) cover to cover
-2. [02 - Concepts/07 - Glossary.md](02%20-%20Concepts/07%20-%20Glossary.md) — skim so vocab feels familiar
-
-**Session 2** (~2 hours) — Understand the building blocks
-3. [02 - Concepts/01 - Image Encryption Basics.md](02%20-%20Concepts/01%20-%20Image%20Encryption%20Basics.md)
-4. [02 - Concepts/02 - Discrete Wavelet Transform.md](02%20-%20Concepts/02%20-%20Discrete%20Wavelet%20Transform.md)
-5. [02 - Concepts/03 - Chaotic Maps.md](02%20-%20Concepts/03%20-%20Chaotic%20Maps.md)
-
-**Session 3** (~2 hours) — Understand the encryption pipeline
-6. [02 - Concepts/04 - Confusion and Diffusion.md](02%20-%20Concepts/04%20-%20Confusion%20and%20Diffusion.md)
-7. [02 - Concepts/05 - XOR Cipher.md](02%20-%20Concepts/05%20-%20XOR%20Cipher.md)
-8. [02 - Concepts/06 - Security Metrics.md](02%20-%20Concepts/06%20-%20Security%20Metrics.md)
-
-**Session 4** (~1.5 hours) — Internalize the talk
-9. Re-read [01 - Project Report.md](01%20-%20Project%20Report.md) — it'll click much harder this time
-10. Your own speaker script in [03 - Speaker Scripts/](03%20-%20Speaker%20Scripts/) — read out loud
-11. [06 - Q&A and Rehearsal.md](06%20-%20Q%26A%20and%20Rehearsal.md) — answer each question out loud
-
-After 4 sessions you can defend the paper.
+- Over 10 minutes → cut off mid-sentence
+- Under 8 minutes → looks unprepared
+- Ideal target → 9:30 to 10:00
+- Both speakers must talk roughly equally
+- Both must cover technical content (no fluff role)
 
 ---
 
-## Final deliverables (graded files)
+## If your brain blanks during the talk
 
-| File | Purpose |
-|---|---|
-| `CMP4221 - DWT Encryption Presentation.pptx` | The deck you actually project on screen |
-| `CMP4221 - DWT Encryption Presentation.pdf` | PDF backup of the deck (in case PPTX dies) |
-| `CMP4221 - DWT Encryption Study Deck.pptx` | Companion backup deck — extra slides for Q&A defense |
-| `CMP4221 - DWT Encryption Study Deck.pdf` | PDF of the study deck |
+Say slowly: *"This paper combines DWT compression with a 3D chaotic map to encrypt multiple color images in a single cube, reaching 32 dB PSNR and entropy 7.9994."*
 
-To rebuild any of these from source, run from this folder:
+That sentence buys you 8-10 seconds to recover.
+
+---
+
+## To rebuild the deck after edits
+
+From this folder:
 
 ```powershell
 python _build/build_deck.py
 ```
 
----
-
-## The one-line summary if your brain blanks during the talk
-
-> *"This paper combines DWT compression with a 3D chaotic map to encrypt multiple color images of different sizes in a single cube, reaching 32 dB PSNR reconstruction and entropy of 7.9994 — compression and encryption in one pipeline."*
-
-Memorize it. If you freeze, say it slowly, and you've earned 10 seconds to recover.
+Outputs both PPTX and PDF files plus PNG previews in `_build/rendered/`.

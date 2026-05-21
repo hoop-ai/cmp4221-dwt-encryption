@@ -20,24 +20,32 @@
 **One-line summary:**
 > *This paper combines DWT compression with a 3D chaotic map to encrypt multiple color images of different sizes in a single cube, reaching 32 dB PSNR reconstruction and entropy of 7.9994 — compression and encryption in one pipeline.*
 
+**Three magic words:** SHRINK → STACK → SCRAMBLE.
+
 ---
 
-## How to use this repo (read in this order)
+## How to use this repo
 
-| Step | File | What it gives you |
-|---|---|---|
-| 0 | [`00 - START HERE.md`](00%20-%20START%20HERE.md) | Navigation + 4-session study plan |
-| 1 | [`01 - Project Report.md`](01%20-%20Project%20Report.md) | Master 15-20 page report on the paper |
-| 2 | [`02 - Concepts/`](02%20-%20Concepts/) | 8 explainers — image encryption, DWT, chaotic maps, confusion/diffusion, XOR, security metrics, glossary, notation |
-| 3 | [`03 - Speaker Scripts/`](03%20-%20Speaker%20Scripts/) | Word-for-word scripts for each speaker (Abdul slides 1-5, Maria slides 6-10), timed and trimmable |
-| 4 | [`04 - The Paper/`](04%20-%20The%20Paper/) | Verbatim paper text + plain-English walkthrough of all 18 equations + figure index |
-| 5 | [`05 - Code/`](05%20-%20Code/) | Reference Python implementation of the algorithm + line-by-line walkthrough |
-| 6 | [`06 - Q&A and Rehearsal.md`](06%20-%20Q%26A%20and%20Rehearsal.md) | 20 anticipated audience questions + rehearsal plan + stage directions |
-| 7 | [`07 - Slide Deck Source.md`](07%20-%20Slide%20Deck%20Source.md) | Markdown source of the slides — mirrors the .pptx content |
-| — | [`_meta/`](_meta/) | Prof brief, requirements breakdown, form schema (admin only) |
-| — | [`_build/`](_build/) | Python script that builds the .pptx and .pdf deliverables |
+### Reading order (start at the top, go down)
 
-## Deliverables (graded files)
+| # | File | What it is | Time |
+|---|---|---|---|
+| 1 | [What This Project Is](What%20This%20Project%20Is.md) | **Start here.** Orientation. What's the assignment, what paper we picked, what we have to do. Zero technical content. | 10 min |
+| 2 | [Plain English Walkthrough](Plain%20English%20Walkthrough.md) | The paper explained with everyday analogies. No math. No jargon. | 25 min |
+| 3 | [Visual Cheat Sheet](Visual%20Cheat%20Sheet.md) | Every concept as a diagram. Mermaid + ASCII art. | 15 min |
+| 4 | [STUDY GUIDE](STUDY%20GUIDE.md) | Slide-by-slide deep dive. What to say, what to know, memory anchors, Q&A defense. | 90 min |
+| 5 | [Speaker Scripts/](Speaker%20Scripts/) | Word-for-word lines for each presenter | 30 min × passes |
+| 6 | [_reference/Q&A and Rehearsal](_reference/Q%26A%20and%20Rehearsal.md) | 20 anticipated audience questions with model answers + rehearsal plan | 30 min |
+| 7 | [_reference/](_reference/) | Academic backup material — full project report, concept files, verbatim paper text, equations walkthrough, reference Python implementation | dip-in |
+
+### Hidden folders (ignore unless you need them)
+
+- **[_meta/](_meta/)** — admin only: prof brief, requirements breakdown, form schema, class channel message
+- **[_build/](_build/)** — the Python script that generates the .pptx and .pdf
+
+---
+
+## Graded deliverables (what gets projected)
 
 | File | Purpose |
 |---|---|
@@ -46,7 +54,7 @@
 | `CMP4221 - DWT Encryption Study Deck.pptx` | Companion backup deck with extra slides for Q&A defense |
 | `CMP4221 - DWT Encryption Study Deck.pdf` | PDF of the study deck |
 
-To rebuild any of these:
+To rebuild from source:
 
 ```powershell
 python _build/build_deck.py
@@ -56,26 +64,7 @@ python _build/build_deck.py
 
 ---
 
-## Speaker split
-
-| Slide | Speaker | Content |
-|---|---|---|
-| 1 | Abdul | Title + paper intro |
-| 2 | Abdul | Problem (bandwidth + safety) |
-| 3 | Abdul | Two ingredients (DWT + chaotic map) |
-| 4 | Abdul | **Novelty** (encrypt the cube) |
-| 5 | Abdul | Pipeline overview + **handoff** |
-| 6 | Maria | Confusion (scramble positions) |
-| 7 | Maria | Diffusion (XOR with chaos) |
-| 8 | Maria | **Findings** (PSNR 32 dB beats prior work) |
-| 9 | Maria | Security (NIST, NPCR, UACI, IE) |
-| 10 | Maria | Limitation + take-home |
-
-Both speakers aim for ~5:00 each, 10:00 total. Both blocks are 100% technical content (per professor's grading criteria).
-
----
-
-## Numbers to memorize
+## Numbers to memorize cold
 
 If you only remember 6 numbers, remember these:
 
@@ -87,6 +76,18 @@ If you only remember 6 numbers, remember these:
 - **Key space ≥ 2¹⁰⁰** — brute force is infeasible
 
 These 6 numbers answer 80% of "how good is the security" questions.
+
+---
+
+## If you're starting from zero and have only 30 minutes
+
+Skip everything else. Do this:
+
+1. Read [What This Project Is](What%20This%20Project%20Is.md) sections 6 and 11 (10 min) — what's the assignment, what we found
+2. Read the **Panic-mode summary** at the top of [STUDY GUIDE](STUDY%20GUIDE.md) (5 min)
+3. Read your speaker script out loud with a timer (15 min)
+
+You'll survive.
 
 ---
 
